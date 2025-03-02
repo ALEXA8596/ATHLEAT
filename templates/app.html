@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}APP NAME{% endblock %}
+{% block header %}APP{% endblock %}
+
+
+{% block body %}
+<div class="app-container" style="margin-top: 0px !important">
+  <!--<h2>App</h2>-->
+  <p>Welcome,
+    {{ username }}!
+  </p>
+
+  <div class="form-container">
+    <form action="/results" method="POST">
+      <h3>What did you do today?</h3>
+      <div class="form-group">
+        <label for="activity-type">Activity Type</label>
+        <select id="activity-type" name="activity_type" required onchange="toggleOtherActivity(this)">
+          <option value="running">Running</option>
+          <option value="jogging">Jogging</option>
+          <option value="walking">Walking</option>
+          <option value="hiking">Hiking</option>
+          <option value="gym-upper-body">Gym (Upper Body)</option>
+          <option value="gym-lower-body">Gym (Lower Body)</option>
+          <option value="biking">Biking</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" id="other-activity" name="other_activity" style="display:none;" placeholder="Please specify">
+        <script>
+          function toggleOtherActivity(select) {
+            var otherActivityInput = document.getElementById('other-activity');
+            if (select.value === 'other') {
+              otherActivityInput.style.display = 'block';
+              otherActivityInput.required = true;
+            } else {
+              otherActivityInput.style.display = 'none';
+              otherActivityInput.required = false;
+            }
+          }
+        </script>
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration (minutes)</label>
+        <input type="number" id="duration" name="duration" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="distance">Distance (miles) (if its a moving exercise!)</label>
+        <input type="number" id="distance" name="distance"><br>
+        <div class="form-group">
+          <label for="calories-burnt">Calories Burnt (optional)</label>
+          <input type="number" id="calories-burnt" name="calories_burnt">
+        </div>
+        <div class="form-group">
+          <label for="strenuous-level">Strenuous Level (0-100)</label>
+          <input type="range" id="strenuous-level" name="strenuous_level" min="0" max="100" value="50">
+        </div>
+        <div class="form-group" style="text-align: center">
+          <button type="button" onclick="alert('This will be implemented later!')">
+            <i class="fa fa-strava"></i>Import from Strava
+          </button>
+          <button type="button" onclick="alert('This will be implemented later!')">
+            <i class="fa fa-fitbit"></i>Import from Fitbit
+          </button>
+        </div>
+        <div class="form-group" style="text-align: center">
+          <label for="workout-time">Time of Workout</label>
+          <input type="time" id="workout-time" name="workout_time" required><br><br>
+          <button type="button" onclick="setCurrentTime()">Set Current Time</button>
+        </div>
+        <script>
+          function setCurrentTime() {
+            var now = new Date();
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('workout-time').value = hours + ':' + minutes;
+          }
+        </script>
+        <br>
+        <div class="form-group" style="text-align: center"></div>
+            <label for="activity-date" style="text-align: center">Date of Activity</label>
+            <input type="date" id="activity-date" name="activity_date" required><br><br>
+            <button type="button" onclick="setTodayDate()" style="display: block; margin: 0 auto;">Set Today</button><br>
+        </div>
+        <script>
+          function setTodayDate() {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('activity-date').value = today;
+          }
+        </script>
+        <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

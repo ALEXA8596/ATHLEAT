@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Results Analysis {% endblock %}
+{% block header %}Results{% endblock %}
+
+{% block body %}
+<div class="results-container card" style="margin: 50px !important; padding: 50px !important; margin-top: 0px !important;">
+
+    <h2>Results Analysis</h2>
+    <ul>
+        <li>Activity Type: {{ activity_type }}</li>
+        <li>Duration: {{ duration }} minute(s)</li>
+        <li>Distance: {{ distance }} mile(s)</li>
+        <li>Calories Burnt: {{ calories_burnt }}</li>
+        <li>Strenuosity: {{ strenuosity }}</li>
+        <li>Workout Time: {{ workout_time }}</li>
+    </ul>
+    <div class="ai-response">
+        <h3>Analysis</h3>
+        <p>{{ response }}</p>
+    </div>
+</div>
+{% endblock %}

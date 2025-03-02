@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout
+{% endblock %}
+{% block header %}Workout Maker{% endblock %}
+
+{% block main %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Maker</title>
+</head>
+<body>
+    <div class="card" style="padding: 50px; text-align: center;">
+        <h2 style="text-align: center">What are you looking for?</h2><br>
+          <div class="card-body">
+            <form action="/workout" method="post">
+                <div class="card-body">
+                  <input type="text" class="form-control" id="workout" placeholder="Ex. Leg Workouts" name="specific">
+                </br>
+                  <button class="btn btn-primary" type="submit">Generate Workout</button>
+                </div>
+            </form>
+        </div>
+</body>
+</html>
+
+  
+{% endblock %}
+
+{% block body %}{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Workout
+{% endblock %}
+{% block header %}Workout Maker{% endblock %}
+
+{% block main %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Maker</title>
+</head>
+<body>
+    <div class="card" style="padding: 50px; text-align: center;">
+        <h2 style="text-align: center">Your Personalized Workout</h2><br>
+          <div class="card-body">
+            {% for i in range(length) %}
+          <p>{{i+1}}. {{ result[i] }}</p>
+          {% endfor %}
+        </div>
+</body>
+</html>
+
+  
+{% endblock %}
+
+{% block body %}{% endblock %}

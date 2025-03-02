@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scanner
+{% endblock %}
+
+
+{% block main %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Image for Text Detection</title>
+</head>
+<body>
+
+
+    <div class="card" style="padding: 50px; text-align: center;">
+      <h2 style="text-align: center">Results</h2><br>
+        <h5 style="text-align: center">Your Ingredients </h5>
+        <div class="card-body">
+          <p>{{ ingredients }}</p>
+      
+        <h5 style="text-align: center">What You Should Know </h5>
+          {% for i in range(length) %}
+        <p>-{{ result[i] }}</p>
+        {% endfor %}
+          
+          <form action="/specific" method="post">
+          <div class="card">
+            <h5 class="card-header" style="text-align: center">Want to learn more about another ingredient?</h5>
+            <div class="card-body">
+              <input type="text" class="form-control" id="ingredient" placeholder="Ingredient" name="specific">
+            </br>
+              <button class="btn btn-primary" type="submit">Learn more!</button>
+            </div>
+          </div>
+        </form>
+          <br>
+          <a href="/scanner" class="btn btn-primary" style="background-color: #85312b !important">Scan Another Image</a>
+        </div>
+      </div>
+
+</body>
+</html>
+
+  
+{% endblock %}
+
+{% block body %}{% endblock %}

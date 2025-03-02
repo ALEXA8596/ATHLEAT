@@ -1,0 +1,233 @@
+.content {
+    margin: 0px 0px 0px 0px !important;
+    margin-top: 0px !important;
+}
+
+.page-title {
+    text-align: center !important;
+    margin-top: 50px !important;
+}
+
+.profile {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.bar {
+    color: white !important;
+    font-size: 125%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Login Page Temporary */
+
+.signin-container, .settings-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50% !important;
+    margin: auto;
+    margin-bottom: 50px !important;
+    margin-top: 0px !important;
+}
+.signin-container h2 {
+    margin-bottom: 20px;
+}
+.signin-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.signin-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #85312b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.signin-container button:hover {
+    background-color: #85312b;
+}
+
+.welcome-div {
+    text-align: center;
+}
+
+.small {
+    width: 300px;  
+    height: 300px;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    margin-bottom: 50px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-container h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.app-container p {
+    color: #666;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group input[type="range"] {
+    margin-top: 0.5rem;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #85312b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #6e2823;
+}
+
+h3 {
+    color: #444;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+/*
+.settings-container,
+.signin-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.settings-container form,
+.signin-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.settings-container input,
+.signin-container input {
+    width: 80%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.settings-container button,
+.signin-container button {
+    width: 80%;
+    margin-top: 1rem;
+}
+*/
+.profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /*object-fit: cover;*/
+   /* margin: 1rem 0;*/
+}
+
+.reg-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    appearance: none; /* Removes default browser styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.form-group select:hover {
+    border-color: #85312b;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #85312b;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Style for the "Other" input field */
+#other-activity {
+    margin-top: 0.5rem;
+}
+
+.history-header {
+    text-align: center;
+}

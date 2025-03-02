@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block header %}ATHLEAT{% endblock %}
+{% block body %}
+<title>Fixed Header with Scrolling Content</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Fixed Image Container */
+    .fixed-image-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 800px;
+      background-image: url('https://your-image-url-here.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1; /* Ensure content is above the image */
+    }
+
+    /* Main Content */
+    .content {
+      padding-top: 1020px; /* This ensures the content starts below the fixed image */
+      padding: 40px;
+      background-color: #f9f9f9;
+      margin-bottom: 0;
+    }
+
+    /* Additional Styling for content (optional) */
+    h1 {
+      color: white;
+      font-size: 6rem;
+      padding-top: 100px;
+      margin-bottom: 150px;
+    }
+
+    .content h1 {
+        color: #333;
+        font-size: 2.5rem;
+        margin: 10px;
+        margin-top: 0;
+    }
+
+    p {
+      margin-left: 15px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .fixed-image-container img {
+        opacity: 0.8;
+        width: 100%;
+    }
+
+    body {
+        background-color: black;
+    }
+  </style>
+</style>
+<!-- Fixed Image -->
+<div class="fixed-image-container">
+    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+</div>
+
+<!-- Scrolling Content -->
+<div class="content">
+    <nav class="navbar navbar-expand-md navbar-light bg-light border" style="background-color: #85312b !important; border: none !important;">
+      </nav>
+  <h1>Welcome to ATHLEAT!</h1>
+  <p>ATHLEAT is a game-changer for anyone looking to take control of their health and fitness journey. With its extensive database of food labels, it empowers users to make informed decisions about what they're eating. You can quickly access detailed nutritional information and better understand how certain foods fit into your goals. The ability to create and submit personalized workouts directly on the website adds another layer of convenience, allowing users to design routines that cater to their fitness level and aspirations.</p>
+  <p>What truly sets ATHLEAT apart is its personalized meal plans. Once you’ve submitted your workouts, the platform takes the guesswork out of nutrition by tailoring meals to complement your fitness routine. This ensures you’re fueling your body with the right nutrients at the right time. Whether you’re a beginner or a seasoned athlete, ATHLEAT seamlessly integrates fitness and nutrition to help you reach your goals faster and more effectively. It’s like having a coach and a nutritionist at your fingertips!</p>
+  <br><br>
+  <center>
+    <img style="margin: 20px;
+    height: 400px;
+    opacity: 1;" src="https://images.unsplash.com/photo-1565992441121-4367c2967103?q=80&w=2023&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+  <img style="margin: 20px;
+        height: 400px;
+        opacity: 1;" src="https://images.unsplash.com/photo-1538146888063-3ecf5e002d7c?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    <img style="margin: 20px;
+    height: 400px;
+    opacity: 1;" src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?q=80&w=2081&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+    </center>
+  <br><br><br><br>
+    
+
+</div>
+
+
+
+{% endblock %}

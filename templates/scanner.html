@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scanner
+{% endblock %}
+{% block header %}Label Scanner{% endblock %}
+
+{% block main %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Image for Text Detection</title>
+</head>
+<body>
+    <div class="card">
+  <h2 class="a" style="text-align: center; margin-top: 35px">Upload an Ingredients Label</h2>
+  <div class="card-body">
+    </br>
+    </br>
+  <form action="/scanner" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" required><br><br>
+      <button type="submit" class="scan_button"> Upload & Detect Text</button>
+  </form>
+    </br>
+    </br>
+    </br>
+
+       <p class="pink" style="font-size:130%;">Examples: </p>
+        <img src="{{ url_for('uploads', filename='ex.png') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" >
+        <img src="{{ url_for('uploads', filename='ex2.png') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" >
+        <img src="{{ url_for('uploads', filename='ex3.jpg') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" ><br>
+
+        <img src="{{ url_for('uploads', filename='ex4.png') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" >
+        <img src="{{ url_for('uploads', filename='bar.jpg') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" >
+        <img src="{{ url_for('uploads', filename='Lays_BBQ_Chips.jpg') }}" class="img-responsive img-circle margin small" id="circle" style="display:inline" alt="" >
+</div>
+</body>
+</html>
+
+  
+{% endblock %}
+
+{% block body %}{% endblock %}

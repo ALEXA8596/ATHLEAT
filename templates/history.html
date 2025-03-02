@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block title %}History{% endblock %}
+{% block header %}Activity History{% endblock %}
+    
+{% block body %}
+<div class="history-container" id="accordion" style="margin: 50px !important; margin-top: 0px !important">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="time-tab" data-toggle="tab" href="#time" role="tab" aria-controls="time" aria-selected="true">Total Exercise Time</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link" id="calories-tab" data-toggle="tab" href="#calories" role="tab" aria-controls="calories" aria-selected="false">Calories Burnt</a>
+    </li> -->
+    <li class="nav-item">
+        <a class="nav-link" id="distance-tab" data-toggle="tab" href="#distance" role="tab" aria-controls="distance" aria-selected="false">Distance</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="time" role="tabpanel" aria-labelledby="time-tab">
+        <canvas id="timeChart"></canvas>
+    </div>
+    <!-- prettier-ignore-start -->
+    <!-- <div class="tab-pane fade" id="calories" role="tabpanel" aria-labelledby="calories-tab">
+        <canvas id="caloriesChart"></canvas>
+    </div> -->
+    <div class="tab-pane fade" id="distance" role="tabpanel" aria-labelledby="distance-tab">
+        <canvas id="distanceChart"></canvas>
+    </div>
+    <!-- prettier-ignore-end -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctxTime = document.getElementById('timeChart').getContext('2d');
+    var timeChart = new Chart(ctxTime, {
+        type: 'line',
+        data: {
+            labels: {{ cleanedActivities|map(attribute='workout_date')|list|safe }},
+            datasets: [{
+                label: 'Total Exercise Time',
+                data: {{ cleanedActivities|map(attribute='duration')|list|safe }},
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // var ctxCalories = document.getElementById('caloriesChart').getContext('2d');
+    // var caloriesChart = new Chart(ctxCalories, {
+    //     type: 'line',
+    //     data: {
+    //         labels: {{ cleanedActivities|map(attribute='workout_date')|list|safe }},
+    //         datasets: [{
+    //             label: 'Calories Burnt',
+    //             data: {{ cleanedActivities|map(attribute='calories')|list|safe }},
+    //             borderColor: 'rgba(255, 99, 132, 1)',
+    //             borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //             y: {
+    //                 beginAtZero: true
+    //             }
+    //         }
+    //     }
+    // });
+
+    var ctxDistance = document.getElementById('distanceChart').getContext('2d');
+    var distanceChart = new Chart(ctxDistance, {
+        type: 'line',
+        data: {
+            labels: {{ cleanedActivities|map(attribute='workout_date')|list|safe }},
+            datasets: [{
+                label: 'Distance',
+                data: {{ cleanedActivities|map(attribute='distance')|list|safe }},
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+    <!--<h2 class="history-header">Activity History</h2>-->
+    {% for activity in activities %}
+        <div class="card">
+            <div class="card-header" id="heading{{ loop.index }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link text-left w-100" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
+                        <span class="d-flex justify-content-between align-items-center">
+                            {{ activity.activity_type|default('', true)|title }}  {{ activity.workout_date|default('', true)|title }}
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordion">
+                <div class="card-body">
+                    <p><strong>Type:</strong> {{ activity.activity_type }}</p>
+                    <p><strong>Date:</strong> {{ activity.workout_date }}</p>
+                    <p><strong>Duration:</strong> {{ activity.duration }}</p>
+                    <!-- <p>{{ activity.description }}</p> -->
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
